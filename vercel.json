@@ -6,9 +6,5 @@
         "use": "@vercel/static-build",
         "config": { "distDir": "dist" }
       }
-    ],
-    "routes": [
-      { "src": "/profile.json", "dest": "/dist/profile.json" },
-      { "src": "/(.*)",        "dest": "/dist/$1" }
     ]
-  }  
+}

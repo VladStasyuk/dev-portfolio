@@ -4,7 +4,7 @@ import ProfileCard from './components/ProfileCard';
 import { Profile } from './hooks/useFetch';
 
 const App: React.FC = () => {
-  const { data, loading, error } = useFetch<Profile>('/data/profile.json');
+  const { data, loading, error } = useFetch<Profile>('/profile.json');
 
   if (loading) return <div className="p-4">Loading...</div>;
   if (error || !data) return <div className="p-4 text-red-500">Error loading profile</div>;
