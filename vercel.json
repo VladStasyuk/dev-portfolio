@@ -1,13 +1,14 @@
 {
     "version": 2,
     "builds": [
-      { "src": "api/**/*.py",          "use": "@vercel/python" },
-      { "src": "frontend/package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
+      {
+        "src": "frontend/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist" }
+      }
     ],
     "routes": [
-      { "src": "/api/profile", "dest": "/api/profile.py" },
-      { "src": "/api/(.*)",    "dest": "/api/$1.py" },
+      { "src": "/profile.json", "dest": "/frontend/profile.json" },
       { "src": "/(.*)",        "dest": "/frontend/$1" }
     ]
   }
-  
