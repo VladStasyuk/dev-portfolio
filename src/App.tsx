@@ -1,7 +1,8 @@
 import React from 'react';
-import useFetch from './hooks/useFetch';
+import useFetch, { Profile } from './hooks/useFetch';
 import ProfileCard from './components/ProfileCard';
-import { Profile } from './hooks/useFetch';
+import ExperienceTimeline from './components/ExperienceTimeline';
+import ProjectsGrid from './components/ProjectsGrid';
 
 const App: React.FC = () => {
   const { data, loading, error } = useFetch<Profile>('/profile.json');
@@ -10,8 +11,10 @@ const App: React.FC = () => {
   if (error || !data) return <div className="p-4 text-red-500">Error loading profile</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-3xl mx-auto py-8 space-y-8">
       <ProfileCard profile={data} />
+      <ExperienceTimeline experience={data.experience} />
+      <ProjectsGrid projects={data.projects} />
     </div>
   );
 };
